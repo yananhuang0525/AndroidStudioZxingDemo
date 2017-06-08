@@ -5,14 +5,14 @@ Androidstudio中通过依赖使用zxing扫一扫简单使用
 ```
  compile 'com.journeyapps:zxing-android-embedded:3.5.0'
 ```
-2、设置属性<br>
-    在点击事件中初始化
+2、设置属性
 ```
+在点击事件中初始化
 IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
 integrator.initiateScan();
 ```
-    如果想要竖屏显示需要新建一个空的activity继承CaptureActivity
 ```
+如果想要竖屏显示需要新建一个空的activity继承CaptureActivity
 public class ScanActivity extends CaptureActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,14 +20,14 @@ public class ScanActivity extends CaptureActivity {
     }
 }
 ```
-    在AndroidManifest.xml中设置ScanActivity属性
 ```
+在AndroidManifest.xml中设置ScanActivity属性
  <activity
             android:name=".ScanActivity"
             android:screenOrientation="portrait" />
 ```
-    然后在点击事件中设置属性
 ```
+然后在点击事件中设置属性
 IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
                 // 设置要扫描的条码类型，ONE_D_CODE_TYPES：一维码，QR_CODE_TYPES-二维码
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
